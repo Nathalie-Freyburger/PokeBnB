@@ -13,7 +13,7 @@ class PokemonPolicy < ApplicationPolicy
     is_user_pokemon?
   end
 
-  def shwo?
+  def show?
     true
   end
 

@@ -14,11 +14,10 @@
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          
+
           <%= link_to "All Pokemons", pokemons_path, class: "dropdown-item" %>
-          <%= link_to "Create a Rent", new_pokemon_path, class: "dropdown-item" %>
-          <%= link_to "My reservations", new_pokemon_path, class: "dropdown-item" %>
-          
+          <%#= link_to "Create a Rent", new_pokemon_booking_path(pokemon_id: @pokemon), class: "dropdown-item" %>
+
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
         </div>
       </li>
