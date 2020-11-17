@@ -1,0 +1,102 @@
+.wrapper {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.wrapper:focus {
+    outline: 0;
+}
+
+.clash-card {
+  background: white;
+  width: 300px;
+  display: inline-block;
+  margin: auto;
+  border-radius: 19px;
+  position: relative;
+  text-align: center;
+  box-shadow: -1px 15px 30px -12px black;
+  z-index: 9999;
+}
+
+.clash-card__image {
+  position: relative;
+  height: 200px;
+  margin-bottom: 35px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.clash-card__image--barbarian {
+  background-image: url("https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fjardin%20pokemon.png?v=1605611386585");
+  background-position: cover;
+}
+
+.clash-card__image--barbarian img {
+    position: absolute;
+    top: -30px;
+    left: 20px;
+}
+
+
+.clash-card__level {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.clash-card__level--barbarian {
+  color: #ec9b3b;
+}
+
+.clash-card__unit-name {
+  font-size: 26px;
+  color: black;
+  font-weight: 900;
+  margin-bottom: 2px;
+}
+
+.clash-card__unit-description {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.clash-card__unit-stats--barbarian {
+  background: #ec9b3b;
+}
+
+.clash-card__unit-stats {
+  padding: 15px;
+  color: white;
+  font-weight: 700;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.clash-card__unit-stats sup {
+    position: absolute;
+    bottom: 4px;
+    font-size: 45%;
+    padding: 15px;
+  }
+
+.clash-card__unit-stats.stat {
+    position: relative;
+    font-size: 24px;
+    padding: 10px;
+  }
+
+.clash-card__unit-stats.stat-value {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 12px;
+  }
+.clash-card__unit-stats.no-border {
+    border-right: none;
+  }
+
+.clash-card__unit-stats {
+  display: flex;
+  justify-content: space-around;
+}

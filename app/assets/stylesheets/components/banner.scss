@@ -1,0 +1,13 @@
+.banner {
+  height: 80vh;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.5)), url('https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fc13537fc-8924-4dee-b876-b562eed68eae_banner_pkmn_4x.png?v=1605612633425');
+  background-size: cover;
+  background-position: center;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  color: white
+}
+.banner h1, p {
+  text-shadow: 2px 2px 4px #000000;
+}
