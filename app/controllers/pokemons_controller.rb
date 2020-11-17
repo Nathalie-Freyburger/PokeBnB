@@ -1,5 +1,6 @@
 class PokemonsController < ApplicationController
   before_action :set_pokemon, only: [:show, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @pokemons = Pokemon.all
