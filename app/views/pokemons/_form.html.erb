@@ -1,0 +1,7 @@
+<%= simple_form_for @pokemon do |f| %>
+  <%= f.input :name %>
+  <%= f.input :level %>
+  <%= f.input :ability %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit 'Create Pokemon', class: "btn btn-warning" %>
+<% end %>

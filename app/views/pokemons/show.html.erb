@@ -6,6 +6,17 @@
       <p>abilities: <%= @pokemon.abilities %></p>
       <p>level: <%= @pokemon.level %></p>
       <p>price: <%= @pokemon.price %></p>
+      <% if policy(pokemon).update? %>
+        <p> <%= link_to 'Edit', edit_pokemon_path(pokemon) %></p>
+      <% end %>
+      <% if policy(pokemon).destroy? %>
+        <p> <%= link_to 'Delete', pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"} %></p>
+      <% end %>
       <p><%= link_to "Go Back to Pokemons' list", pokemons_path %></p>
     </div>
+  </div>
 </div>
+
+<% if policy(pokemon).create? %>
+  <%= link_to 'New Pokemon', new_pokemon_path %>
+<% end %>
