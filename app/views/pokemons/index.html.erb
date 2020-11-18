@@ -2,11 +2,33 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h1> All pokemons !!! </h1>
+      <h1> All pokemons !!!  <%= link_to 'New Pokemon', new_pokemon_path, class: "login-btn" %> </h1>
       <% @pokemons.each do |pokemon| %>
-        <%= link_to pokemon.name, pokemon_path(pokemon) %>
+        <div class="clash-card barbarian mt-5">
+          <div class="clash-card__image clash-card__image--barbarian">
+            <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
+            </div>
+            <div class="clash-card__unit-name"><%= link_to pokemon.name, pokemon_path(pokemon) %></div>
+            <div class="clash-card__level clash-card__level--barbarian">Level <%= pokemon.level %></div>
+            <div class="clash-card__unit-description">
+              This Pikachu has a great ha warrior with an angry, battle-ready expression, hungry for giving you electricity for the all family house.
+            </div>
+            <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
+              <div class="one-third">
+                <div class="stat"><%= pokemon.abilities %></div>
+              </div>
+              <div class="one-third no-border">
+                <div class="stat"><%= pokemon.price %>€/d</div>
+              </div>
+            </div>
+        </div>
       <% end %>
       <br>
-      <%= link_to 'New Pokemon', new_pokemon_path, class: "login-btn" %>
+    </div>
+    <div class="col-6">
+      <img src="https://lewagon.github.io/layouts-demo/images/mapbox.png" alt="map">
     </div>
 </div>
+
+
+

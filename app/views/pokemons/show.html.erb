@@ -1,12 +1,25 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <h1><%= @pokemon.name %></h1>
-      <p>abilities: <%= @pokemon.abilities %></p>
-      <p>level: <%= @pokemon.level %></p>
-      <p>price: <%= @pokemon.price %></p>
-
+<div class="login-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 login-box mt-n5">
+        <div class="clash-card barbarian mt-5">
+          <div class="clash-card__image clash-card__image--barbarian">
+            <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
+            </div>
+            <div class="clash-card__unit-name"><%= @pokemon.name %></div>
+            <div class="clash-card__level clash-card__level--barbarian">Level <%= @pokemon.level %></div>
+            <div class="clash-card__unit-description">
+              This Pikachu has a great ha warrior with an angry, battle-ready expression, hungry for giving you electricity for the all family house.
+            </div>
+            <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
+              <div class="one-third">
+                <div class="stat"><%= @pokemon.abilities %></div>
+              </div>
+              <div class="one-third no-border">
+                <div class="stat"><%= @pokemon.price %>€/d</div>
+              </div>
+            </div>
+        </div>
       <%# if @pokemon.photo.attached? %> <%# background_url = cl_image_path @pokemon.photo.key, width: 300, height: 400, crop: :fill %>
       <%# else %> <%# background_url = 'https://source.unsplash.com/300x400/?pokemon' %>
       <%# end %>
@@ -17,7 +30,9 @@
     </div>
   </div>
 </div>
+  <% if policy(@pokemon).create? %>
+    <%= link_to 'New Pokemon', new_pokemon_path %>
+  <% end %>
+</div>
 
-<% if policy(@pokemon).create? %>
-  <%= link_to 'New Pokemon', new_pokemon_path %>
-<% end %>
+
