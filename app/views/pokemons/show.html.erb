@@ -18,6 +18,19 @@
   </div>
 </div>
 
+<div class="container">
+<%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.submit 'Catch Pokemon', class: "btn btn-warning" %>
+<% end %>
+</div>
+<br>
+<div class="container">
+<%= link_to "Go Back", pokemons_path %>
+</div>
+<div class="container">
 <% if policy(@pokemon).create? %>
   <%= link_to 'New Pokemon', new_pokemon_path %>
 <% end %>
+</div>
