@@ -1,7 +1,8 @@
 <div class="login-banner">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 offset-md-3 login-box mt-n5">
+      <div class="col-md-6 mt-n5">
+         <%= link_to "Go Back to Pokemons' list", pokemons_path, class: "login-btn mt-5" %>
         <div class="clash-card barbarian mt-5">
           <div class="clash-card__image clash-card__image--barbarian">
             <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
@@ -26,18 +27,14 @@
       <% if policy(@pokemon).destroy? %>
         <p> <%= link_to 'Delete', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"} %></p>
       <% end %>
-      <p><%= link_to "Go Back to Pokemons' list", pokemons_path %></p>
     </div>
-    <div class="col-6>
+    <div class="col-6 bg-light rounded d-flex justify-content-center align-items-center">
       <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
-        <%= f.input :start_date, as: :date %>
+        <%= f.input :start_date, as: :date, class: "wd-100"%>
         <%= f.input :end_date, as: :date %>
         <%= f.submit 'Catch Pokemon', class: "btn btn-warning" %>
       <% end %>
     </div>
   </div>
 </div>
-  <% if policy(@pokemon).create? %>
-    <%= link_to 'New Pokemon', new_pokemon_path %>
-  <% end %>
 </div>
