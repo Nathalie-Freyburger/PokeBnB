@@ -28,11 +28,16 @@
       <% end %>
       <p><%= link_to "Go Back to Pokemons' list", pokemons_path %></p>
     </div>
+    <div class="col-6>
+      <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
+        <%= f.input :start_date, as: :date %>
+        <%= f.input :end_date, as: :date %>
+        <%= f.submit 'Catch Pokemon', class: "btn btn-warning" %>
+      <% end %>
+    </div>
   </div>
 </div>
   <% if policy(@pokemon).create? %>
     <%= link_to 'New Pokemon', new_pokemon_path %>
   <% end %>
 </div>
-
-

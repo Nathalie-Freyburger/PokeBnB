@@ -1,18 +1,24 @@
 class BookingsController < ApplicationController
-before_action :set_pokemon, only: [:show, :destroy]
+before_action :authenticate_user!
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
+    pokemon = Pokemon.find(params[:pokemon_id])
     @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to @booking, notice: 'You successfully booked a pokemon!'
-    else
-      render :new
+    authorize @booking
+  
+    @booking.user = current_user
+    @booking.pokemon = pokemon
+    @booking.total_price = pokemon.price
+    @booking.save
+
+        flash[:notice] = "You catched it!"
+        redirect_to root_path
     end
-  end
 
   def destroy
     @booking.destroy
@@ -21,11 +27,11 @@ before_action :set_pokemon, only: [:show, :destroy]
 
   private
 
-  def set_booking
-    @booking = Booking.find(params[:id])
-  end
+  # def set_booking
+  #   @booking = Booking.find(params[:id])
+  # end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
