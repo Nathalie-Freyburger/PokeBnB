@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="https://pokebnb-gael1130.herokuapp.com">
+  <%= link_to root_path, class: "navbar-brand"  do %>
     <lottie-player class="logo"src="https://assets4.lottiefiles.com/private_files/lf30_rBOODA.json"  background="transparent"  speed="1"  style="width: 120px; height: 120px;" autoplay loop></lottie-player>
-</a>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -27,9 +27,9 @@
 
 <% else %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
+  <%= link_to root_path, class: "navbar-brand"  do %>
     <lottie-player class="logo"src="https://assets4.lottiefiles.com/private_files/lf30_rBOODA.json"  background="transparent"  speed="1"  style="width: 120px; height: 120px;" autoplay loop></lottie-player>
-</a>
+  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -37,7 +37,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Login", new_user_session_path, class: "dropdown-item" %>
+        <%= link_to "Login", new_user_session_path, class: "login-btn" %>
       </li>
     </ul>
   </div>
