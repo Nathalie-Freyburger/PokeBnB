@@ -12,6 +12,15 @@ Pokemon.destroy_all
 sacha = User.create(username: "Sacha", email: "sacha@pokebnb.com", password: "123456")
 ondine = User.create(username: "Ondine", email: "ondine@pokebnb.com", password: "123456")
 
+tortank = Pokemon.new(name: "Tortank", price: 2020, abilities: "water", level: 99)
+tortank.user = sacha
+tortank.save
+rondoudou = Pokemon.new(name: "Rondoudou", price: 80, abilities: "fairy", level: 12)
+rondoudou.user = ondine
+rondoudou.save
+florizarre = Pokemon.new(name: "Florizarre", price: 1050, abilities: "plant", level: 99)
+florizarre.user = ondine
+florizarre.save
 dracaufeu = Pokemon.new(name: "Dracaufeu", price: 1050, abilities: "fire", level: 100)
 dracaufeu.user = sacha
 dracaufeu.save
@@ -21,12 +30,6 @@ salameche.save
 pikachu = Pokemon.new(name: "Pikachu", price: 150, abilities: "electricity", level: 25)
 pikachu.user = sacha
 pikachu.save
-tortank = Pokemon.new(name: "Tortank", price: 2020, abilities: "water", level: 99)
-tortank.user = sacha
-tortank.save
-rondoudou = Pokemon.new(name: "Rondoudou", price: 80, abilities: "fairy", level: 12)
-rondoudou.user = ondine
-rondoudou.save
 ponyta = Pokemon.new(name: "Ponyta", price: 120, abilities: "fire", level: 19)
 ponyta.user = ondine
 ponyta.save
@@ -36,3 +39,4 @@ evoli.save
 florizarre = Pokemon.new(name: "Florizarre", price: 1050, abilities: "plant", level: 99)
 florizarre.user = ondine
 florizarre.save
+
