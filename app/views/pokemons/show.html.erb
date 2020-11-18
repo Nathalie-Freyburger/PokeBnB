@@ -1,8 +1,11 @@
-<div class="login-banner">
+<div class="banner-show">
   <div class="container">
     <div class="row">
       <div class="col-md-6 mt-n5">
          <%= link_to "Go Back to Pokemons' list", pokemons_path, class: "login-btn mt-5" %>
+         <% if policy(@pokemon).destroy? %>
+          <p> <%= link_to 'Delete', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"}, class: 'delete-btn'%></p>
+        <% end %>
         <div class="clash-card barbarian mt-5">
           <div class="clash-card__image clash-card__image--barbarian">
             <% if @pokemon.photo.attached? %>
@@ -28,11 +31,8 @@
       <%# if @pokemon.photo.attached? %> <%# background_url = cl_image_path @pokemon.photo.key, width: 300, height: 400, crop: :fill %>
       <%# else %> <%# background_url = 'https://source.unsplash.com/300x400/?pokemon' %>
       <%# end %>
-      <% if policy(@pokemon).destroy? %>
-        <p> <%= link_to 'Delete', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"} %></p>
-      <% end %>
     </div>
-    <div class="col-6 bg-light rounded d-flex justify-content-center align-items-center">
+    <div class="col-6 rounded d-flex justify-content-center align-items-center">
       <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
         <%= f.input :start_date, as: :date, class: "wd-100"%>
         <%= f.input :end_date, as: :date %>
