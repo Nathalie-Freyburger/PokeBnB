@@ -1,10 +1,12 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <h1> All pokemons !!!  <%= link_to 'New Pokemon', new_pokemon_path, class: "login-btn" %> </h1>
+<div class="row no-gutters">
+  <div class="col-sm-6 col-md-8">
+    <div class="row">
+          <div class="p-5 d-flex justify-content-around">
+           <h2>Pokemons disponibles:</h2>
+          </div>
+        </div>
       <% @pokemons.each do |pokemon| %>
-        <div class="clash-card barbarian mt-5">
+        <div class="clash-card barbarian my-5 mx-5">
           <div class="clash-card__image clash-card__image--barbarian">
             <% if pokemon.photo.attached? %>
             <%= cl_image_tag pokemon.photo.key, height: 252, width: 252, crop: :fill %>
@@ -27,11 +29,9 @@
             </div>
         </div>
       <% end %>
-      <br>
-    </div>
-    <div class="col-6">
-      <img src="https://lewagon.github.io/layouts-demo/images/mapbox.png" alt="map">
-    </div>
+  </div>
+      <div class="col-6 col-md-4">
+      <div id="map" data-markers="<%= @markers.to_json %>"  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" ></div>
     </div>
 </div>
 
