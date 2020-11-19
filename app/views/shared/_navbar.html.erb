@@ -17,8 +17,7 @@
 
           <%= link_to "All Pokemons", pokemons_path, class: "dropdown-item" %>
           <%= link_to "Create a pokemon", new_pokemon_path, class: "dropdown-item" %>
-          <%#= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
-
+          <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"%>
         </div>
       </li>

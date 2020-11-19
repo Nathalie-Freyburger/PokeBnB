@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_11_19_130111) do
 
   # These are extensions that must be enabled in order to support this database
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_11_19_130111) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.string "description"
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 

@@ -1,0 +1,23 @@
+<div class="banner-show-user">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mt-n5">
+        <h1 class="show-user">My pokemons</h1>
+        <% @pokemons.each do |pokemon| %>
+          <%= link_to pokemon_path(pokemon) do %>
+            <%= cl_image_tag pokemon.photo.key %>
+          <% end %>
+        <% end %>
+    </div>
+
+    <div class="col-md-6 mt-n5">
+        <h1 class="show-user">My bookings</h1>
+        <% @bookings.each do |booking| %>
+          <%= link_to booking_path(booking) do %>
+            <%= cl_image_tag booking.pokemon.photo.key %>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>

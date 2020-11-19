@@ -1,6 +1,15 @@
 class BookingsController < ApplicationController
 before_action :authenticate_user!
 
+  def index
+    @bookings = Booking.all
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @pokemon = Pokemon.find(@booking.pokemon_id)
+  end
+
   def new
     @booking = Booking.new
     authorize @booking
