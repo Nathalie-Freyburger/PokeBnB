@@ -1,4 +1,4 @@
-class BookingPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -10,7 +10,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    is_user_booking?
+    is_user_review?
   end
 
   def show?
@@ -18,12 +18,12 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    is_user_booking?
+    is_user_review?
   end
 
   private
 
-  def is_user_booking?
-    user == record.user
+  def is_user_review?
+    user == record.booking.user
   end
 end
