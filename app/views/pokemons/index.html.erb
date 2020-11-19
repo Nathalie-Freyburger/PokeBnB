@@ -6,28 +6,31 @@
           </div>
         </div>
       <% @pokemons.each do |pokemon| %>
-        <div class="clash-card barbarian my-5 mx-5">
-          <div class="clash-card__image clash-card__image--barbarian">
+      <div class="clash-card barbarian my-5 mx-5">
+          <div class="clash-card__image_index clash-card__image--barbarian">
             <% if pokemon.photo.attached? %>
-            <%= cl_image_tag pokemon.photo.key, height: 252, width: 252, crop: :fill %>
+              <%= cl_image_tag pokemon.photo.key, height: 252, width: 252, crop: :fill  %>
             <% else %>
-            <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
+              <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
             <% end %>
+          </div>
+          <div class="clash-card__unit-name"><%= link_to pokemon.name, pokemon_path(pokemon) %></div>
+          <div class="clash-card__level clash-card__level--barbarian">Level <%= pokemon.level %></div>
+          <div class="clash-card__unit-description">
+            This Pikachu has a great ha warrior with an angry, battle-ready expression.
+          </div>
+          <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
+            <div class="one-third">
+              <div class="stat"><%= pokemon.abilities %></div>
+              <div class="stat-value">Ability</div>
             </div>
-            <div class="clash-card__unit-name"><%= link_to pokemon.name, pokemon_path(pokemon) %></div>
-            <div class="clash-card__level clash-card__level--barbarian">Level <%= pokemon.level %></div>
-            <div class="clash-card__unit-description">
-              This Pikachu has a great ha warrior with an angry, battle-ready expression, hungry for giving you electricity for the all family house.
+
+            <div class="one-third no-border">
+              <div class="stat"><%= pokemon.price %><sup>€</sup></div>
+              <div class="stat-value">Cost</div>
             </div>
-            <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
-              <div class="one-third">
-                <div class="stat"><%= pokemon.abilities %></div>
-              </div>
-              <div class="one-third no-border">
-                <div class="stat"><%= pokemon.price %>€/d</div>
-              </div>
-            </div>
-        </div>
+          </div>
+        </div> <!-- end clash-card barbarian-->
       <% end %>
   </div>
       <div class="col-6 col-md-4">

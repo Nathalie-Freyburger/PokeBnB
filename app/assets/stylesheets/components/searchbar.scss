@@ -31,26 +31,3 @@ input.searchbar {
   margin-top: 80px;
   align-items: center;
 }
-
-a.search-btn {
-  appearance: none;
-  background-color: #f03454;
-  border: 1px solid #f03454;
-  border-radius: 25px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 18px;
-  height: 46px;
-  line-height: 46px;
-  margin: 0;
-  outline: 0;
-  padding: 0 30px;
-  position: relative;
-  text-align: left;
-  text-decoration: none;
-  transform: matrix(1,0,0,1,57.0078,0);
-  transition: color .3s, background .3s, border .3s;
-  vertical-align: middle;
-  white-space: nowrap;
-}

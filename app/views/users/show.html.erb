@@ -1,23 +1,77 @@
-<div class="banner-show-user">
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 mt-n5">
-        <h1 class="show-user">My pokemons</h1>
-        <% @pokemons.each do |pokemon| %>
-          <%= link_to pokemon_path(pokemon) do %>
-            <%= cl_image_tag pokemon.photo.key %>
-          <% end %>
-        <% end %>
-    </div>
+<div class="banner-show-user ">
+<div class="row">
+    <div class= "col-6">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <% @pokemons.each do |pokemon| %>
+          <div class="swiper-slide d-flex justify-content-center">
+            <div class="clash-card barbarian">
+              <div class="clash-card__image clash-card__image--barbarian">
+                <% if pokemon.photo.attached? %>
+                  <%= cl_image_tag pokemon.photo.key, height: 180, width: 180, crop: :fill %>
+                <% else %>
+                  <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
+                <% end %>
+              </div>
+              <div class="clash-card__unit-name">Pikachu</div>
+              <div class="clash-card__level clash-card__level--barbarian">Level 4</div>
+              <div class="clash-card__unit-description">
+                This Pikachu has a great ha warrior with an angry, battle-ready expression.
+              </div>
+              <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
+                <div class="one-third">
+                  <div class="stat"><%= pokemon.abilities %></div>
+                  <div class="stat-value">Ability</div>
+                </div>
 
-    <div class="col-md-6 mt-n5">
-        <h1 class="show-user">My bookings</h1>
-        <% @bookings.each do |booking| %>
-          <%= link_to booking_path(booking) do %>
-            <%= cl_image_tag booking.pokemon.photo.key %>
-          <% end %>
+                <div class="one-third no-border">
+                  <div class="stat"><%= pokemon.price %><sup>€</sup></div>
+                  <div class="stat-value">Cost</div>
+                </div>
+              </div>
+            </div> <!-- end clash-card barbarian-->
+          </div>
         <% end %>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+    <div class= "col-6 pt-5">
+      <% @bookings.each do |booking| %>
+        <div class="card mt-2" style="width: 600px;">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-4">
+                  <% if booking.pokemon.photo.attached? %>
+                    <%= cl_image_tag booking.pokemon.photo.key, height: 180, width: 180, crop: :fill %>
+                  <% else %>
+                    <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
+                  <% end %>
+                </div>
+                <div class="col-8">
+                  <div class="card-header">
+                    Tortank
+                  </div>
+                  <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
     </div>
   </div>
 </div>
-</div>
+
+<script>
+    var swiper = new Swiper('.swiper-container', {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+</script>
