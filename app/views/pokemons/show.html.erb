@@ -24,7 +24,7 @@
                 <div class="stat"><%= @pokemon.abilities %></div>
               </div>
               <div class="one-third no-border">
-                <div class="stat"><%= @pokemon.price %>€/d</div>
+                <div id="price" class="stat"><%= @pokemon.price %>€/d</div>
               </div>
             </div>
         </div>
@@ -32,13 +32,30 @@
       <%# else %> <%# background_url = 'https://source.unsplash.com/300x400/?pokemon' %>
       <%# end %>
     </div>
+    <!-- ancien formulaire de réservation >
     <div class="col-6 rounded d-flex justify-content-center align-items-center">
       <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
         <%= f.input :start_date, as: :date, class: "wd-100"%>
         <%= f.input :end_date, as: :date %>
         <%= f.submit 'Catch Pokemon', class: "btn btn-warning" %>
       <% end %>
+    </div> -->
+
+    <!-- Flatpickr -->
+    <div class="col-6 rounded d-flex justify-content-center align-items-center">
+      <h2>Catch this <%= @pokemon.name %></h2>
+      <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
+        <%= f.input  :start_date, label: "Pick your dates:", as: :string, required: false, input_html: {id: "range_start", class: "d-none"} %>
+        <%= f.input  :end_date, as: :string, label: false, required: false, input_html: {id: "range_end", class: "d-none" } %>
+        <%= f.button :submit, "Catch it", class: "btn btn-primary" %>
+      <% end %>
     </div>
+    <div
+      id="booking-form-div"
+      data-bookings="<%= @bookings_dates.to_json %>"
+    >
+    <p>Réservation pour <span id="total-nights">0</span> nuits</p>
+    <p>Prix total : <span id="total-price">0</span> € </p>
   </div>
 </div>
 </div>

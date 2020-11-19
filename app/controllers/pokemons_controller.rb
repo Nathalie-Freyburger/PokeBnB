@@ -12,6 +12,13 @@ class PokemonsController < ApplicationController
   end
 
   def show
+    @bookings = Booking.where(pokemon_id: @pokemon.id)
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.start_date,
+        to:   booking.end_date
+      }
+    end
   end
 
   def new
