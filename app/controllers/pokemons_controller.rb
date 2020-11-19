@@ -4,7 +4,8 @@ class PokemonsController < ApplicationController
 
   def index
     if params[:query].present?
-      @pokemons = Pokemon.where("name ILIKE ?", "%#{params[:query]}%")
+      sql_query = "name ILIKE :query OR abilities ILIKE :query"
+      @pokemons = Pokemon.where(sql_query, query: "%#{params[:query]}%")
     else
       @pokemons = Pokemon.all
     end
