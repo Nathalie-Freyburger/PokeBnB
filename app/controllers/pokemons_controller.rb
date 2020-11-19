@@ -3,10 +3,14 @@ class PokemonsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      @pokemons = Pokemon.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @pokemons = Pokemon.all
+    params[:query].present? ? @pokemons = Pokemon.where("name ILIKE ?", "%#{params[:query]}%") : @pokemons = Pokemon.all
+    @markers = @pokemons.geocoded.map do |pokemon|
+      {
+        lat: pokemon.latitude,
+        lng: pokemon.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { pokemon: pokemon }),
+        image_url: helpers.asset_url('https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpokeball.svg')
+      }
     end
   end
 
