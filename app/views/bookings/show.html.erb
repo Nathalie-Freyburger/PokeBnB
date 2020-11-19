@@ -1,0 +1,16 @@
+
+<div class="card-product">
+  <%if @pokemon.photo.attached? %>
+      <%= cl_image_tag @pokemon.photo.key, class: "card-product-img" %>
+    <% end %>
+  <div class="card-product-infos">
+    <h2>Your booking</h2>
+    <ul>
+      <li>Pokemon: <%=@booking.pokemon.name%></li>
+      <li>Owner : <%=@pokemon.username %> </li>
+    </ul>
+  </div>
+</div>
+<br>
+
+<p><%#= link_to 'Add a review', new_booking_review_path(@booking) %></p>

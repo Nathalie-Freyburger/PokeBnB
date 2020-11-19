@@ -25,11 +25,8 @@ before_action :authenticate_user!
     redirect_to root_path
   end
 
-  private
 
-  # def set_booking
-  #   @booking = Booking.find(params[:id])
-  # end
+  private
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)

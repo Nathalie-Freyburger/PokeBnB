@@ -4,26 +4,21 @@
       <p>Change your life, rent a Pokemon.</p>
       <div class="row search-row">
         <div class="col">
-          <input autofocus="" class="searchbar" placeholder="Adress" style="opacity: 1; position: relative; vertical-align: top;" type="search" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto">
-        </div>
-        <div class="col">
-          <input autofocus="" class="searchbar" placeholder="Departure" style="opacity: 1; position: relative; vertical-align: top;" type="search" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto">
-        </div>
-        <div class="col">
-          <input autofocus="" class="searchbar" placeholder="Arrival" style="opacity: 1; position: relative; vertical-align: top;" type="search" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto">
-        </div>
-        <div class="col">
-          <input autofocus="" class="searchbar" placeholder="Pokemon" style="opacity: 1; position: relative; vertical-align: top;" type="search" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto">
-        </div>
-        <div class="col">
-          <%= link_to 'Search', pokemons_path, class: "search-btn" %>
+       <%= form_tag pokemons_path, method: :get do %>
+       <%= text_field_tag :query,
+        params[:query],
+        class: "form-control searchbar",
+        placeholder: "Find your Pokemon"
+       %>
+      <%= submit_tag "Search", class: "search-btn" %>
+      <% end %>
         </div>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="row mt-5"><h2>Featured pokemons</h2></div>
+  <div class="row mt-5"><h2>Most recommanded</h2></div>
   <div class="row featured-cards mt-5">
     <% @pokemons.each do |pokemon| %>
         <div class="col">
