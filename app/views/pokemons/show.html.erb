@@ -3,8 +3,10 @@
     <div class="row">
       <div class="col-md-6 mt-n5">
          <%= link_to "Go Back to Pokemons' list", pokemons_path, class: "login-btn mt-5" %>
+         <br>
+         <%= link_to "Edit Me!", edit_pokemon_path(@pokemon), class: "delete-btn" %>
          <% if policy(@pokemon).destroy? %>
-          <p> <%= link_to 'Delete', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"}, class: 'delete-btn'%></p>
+          <p> <%= link_to 'Delete me! ... wait ... WHAAAAT ?', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"}, class: 'delete-btn'%></p>
         <% end %>
         <div class="clash-card barbarian mt-5">
           <div class="clash-card__image clash-card__image--barbarian">
@@ -17,7 +19,7 @@
             <div class="clash-card__unit-name"><%= @pokemon.name %></div>
             <div class="clash-card__level clash-card__level--barbarian">Level <%= @pokemon.level %></div>
             <div class="clash-card__unit-description">
-              This Pikachu has a great ha warrior with an angry, battle-ready expression, hungry for giving you electricity for the all family house.
+              <%= @pokemon.description %>
             </div>
             <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
               <div class="one-third">
