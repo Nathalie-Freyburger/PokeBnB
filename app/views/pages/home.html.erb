@@ -7,10 +7,10 @@
        <%= form_tag pokemons_path, method: :get do %>
        <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "form-control searchbar",
         placeholder: "Find your Pokemon"
        %>
-      <%= submit_tag "Search", class: "btn btn-danger" %>
+      <%= submit_tag "Search", class: "search-btn" %>
       <% end %>
         </div>
     </div>
