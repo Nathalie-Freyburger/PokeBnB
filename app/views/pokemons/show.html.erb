@@ -3,8 +3,10 @@
     <div class="row">
       <div class="col-md-6 mt-n5">
          <%= link_to "Go Back to Pokemons' list", pokemons_path, class: "login-btn mt-5" %>
+         <br>
+         <%= link_to "Edit Me!", edit_pokemon_path(@pokemon), class: "delete-btn" %>
          <% if policy(@pokemon).destroy? %>
-          <p> <%= link_to 'Delete', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"}, class: 'delete-btn'%></p>
+          <p> <%= link_to 'Delete me! ... wait ... WHAAAAT ?', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"}, class: 'delete-btn'%></p>
         <% end %>
         <div class="clash-card barbarian mt-5">
           <div class="clash-card__image clash-card__image--barbarian">
@@ -17,7 +19,7 @@
             <div class="clash-card__unit-name"><%= @pokemon.name %></div>
             <div class="clash-card__level clash-card__level--barbarian">Level <%= @pokemon.level %></div>
             <div class="clash-card__unit-description">
-              This Pikachu has a great ha warrior with an angry, battle-ready expression, hungry for giving you electricity for the all family house.
+              <%= @pokemon.description %>
             </div>
             <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
               <div class="one-third">
@@ -42,24 +44,35 @@
     </div> -->
 
     <!-- Flatpickr -->
-    <div class="col-6 rounded d-flex justify-content-center align-items-center">
+    <div class="col-6 rounded justify-content-center align-items-center">
       <h2>Catch this <%= @pokemon.name %></h2>
-      <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
-        <%= f.input  :start_date, label: "Pick your dates:", as: :string, required: false, input_html: {id: "range_start", class: "d-none"} %>
-        <%= f.input  :end_date, as: :string, label: false, required: false, input_html: {id: "range_end", class: "d-none" } %>
-        <%= f.button :submit, "Catch it", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <div class="align-items-start d-flex">
+        <%= simple_form_for [@pokemon, @pokemon.bookings.new] do |f| %>
+          <%= f.input  :start_date, label: "Pick your dates:", as: :string, required: false, input_html: {id: "range_start", class: "d-none"} %>
+          <%= f.input  :end_date, as: :string, label: false, required: false, input_html: {id: "range_end", class: "d-none" } %>
+
     <div
       id="booking-form-div"
       data-bookings="<%= @bookings_dates.to_json %>"
     >
+    <p class="text-color">Catch it for <span id="total-nights">0</span> days</p>
+    <p class="text-color">Total price: <span id="total-price">0</span> € </p>
+          <%= f.button :submit, "Catch it", class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to pokemon_path(@pokemon) do %>
+        <button type="button" class="icon-close mt-3" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
 
-    <p></p>
-    <p class="text-color">Réservation pour <span id="total-nights">0</span> jours</p>
-    <p class="text-color">Prix total : <span id="total-price">0</span> € </p>
-
+      </div>
+      <% end %>
   </div>
+
+
+
+
+    </div>
+
 </div>
   <% @pokemon.reviews.each do |review| %>
     <p class="text-color"> Comment: <%= review.comment %> </p>

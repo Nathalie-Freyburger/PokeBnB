@@ -35,6 +35,8 @@ class PokemonsController < ApplicationController
   end
 
   def edit
+    @pokemon = Pokemon.find(params[:id])
+    authorize @pokemon
   end
 
   def create
@@ -50,11 +52,10 @@ class PokemonsController < ApplicationController
   end
 
   def update
-    if @pokemon.update(pokemon_params)
-      redirect_to @pokemon, notice: 'Pokemon was successfully updated.'
-    else
-      render :edit
-    end
+    @pokemon = Pokemon.find(params[:id])
+    authorize @pokemon
+    @pokemon.update(pokemon_params)
+    redirect_to pokemon_path(@pokemon)
   end
 
   def destroy
@@ -70,6 +71,6 @@ class PokemonsController < ApplicationController
   end
 
   def pokemon_params
-    params.require(:pokemon).permit(:name, :abilities, :price, :level, :photo)
+    params.require(:pokemon).permit(:name, :abilities, :description, :price, :level, :photo)
   end
 end

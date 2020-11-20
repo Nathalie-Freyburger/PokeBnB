@@ -1,5 +1,5 @@
 import flatpickr from "flatpickr"
-import "flatpickr/dist/flatpickr.min.css" // Note this is important!
+import "flatpickr/dist/themes/dark.css" // Note this is important!
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 const initFlatpickr = () => {
@@ -19,7 +19,7 @@ const initFlatpickr = () => {
 
     const dynamicPrice = () => {
       let dateDiffInMilliseconds = new Date(endDate.value) - new Date(startDate.value);
-      let nbrOfNights = dateDiffInMilliseconds / 86400000;
+      let nbrOfNights = dateDiffInMilliseconds / 86400000 + 1;
       let price = parseInt(document.getElementById("price").innerText, 10);
       if (!isNaN(nbrOfNights)) {
         document.getElementById("total-price").innerText = nbrOfNights * price;
