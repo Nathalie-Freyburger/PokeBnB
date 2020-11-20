@@ -53,8 +53,8 @@
       id="booking-form-div"
       data-bookings="<%= @bookings_dates.to_json %>"
     >
-    <p>Catch it for <span id="total-nights">0</span> days</p>
-    <p>Total price: <span id="total-price">0</span> € </p>
+    <p class="text-color">Catch it for <span id="total-nights">0</span> days</p>
+    <p class="text-color">Total price: <span id="total-price">0</span> € </p>
           <%= f.button :submit, "Catch it", class: "btn btn-primary" %>
         <% end %>
         <%= link_to pokemon_path(@pokemon) do %>
@@ -72,4 +72,9 @@
     </div>
 
 </div>
+  <% @pokemon.reviews.each do |review| %>
+    <p class="text-color"> Comment: <%= review.comment %> </p>
+    <p class="text-color"> Rating: <%= review.rating %> </p>
+    <p> <%= link_to 'Delete', review_path(review), method: :delete, data: {confirm: "Do you REALY want to delete this review?"}, class: 'delete-btn'%> </p>
+  <% end %>
 </div>

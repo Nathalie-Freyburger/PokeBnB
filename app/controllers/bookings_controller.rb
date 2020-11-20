@@ -8,6 +8,7 @@ before_action :authenticate_user!
   def show
     @booking = Booking.find(params[:id])
     @pokemon = Pokemon.find(@booking.pokemon_id)
+    authorize @booking
   end
 
   def new
@@ -19,21 +20,22 @@ before_action :authenticate_user!
     pokemon = Pokemon.find(params[:pokemon_id])
     @booking = Booking.new(booking_params)
     authorize @booking
-  
+
     @booking.user = current_user
     @booking.pokemon = pokemon
     @booking.total_price = pokemon.price
     @booking.save
 
         flash[:notice] = "You catched it!"
-        redirect_to root_path
+        redirect_to user_path(current_user)
     end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to root_path
   end
-
 
   private
 

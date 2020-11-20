@@ -1,13 +1,15 @@
+<div class="container">
+  <h2>Your booking</h2>
 
-
-  <%if @pokemon.photo.attached? %>
+    <%if @pokemon.photo.attached? %>
       <%= cl_image_tag @pokemon.photo.key %>
     <% end %>
 
-    <h2>Your booking</h2>
     <ul>
-      <li>Pokemon: <%=@booking.pokemon.name%></li>
-      <li>Owner : <%=@pokemon.username %> </li>
+      <li>Pokemon: <%= @booking.pokemon.name %></li>
+      <li>Rented from: <%= @booking.pokemon.user.username %></li>
+      <p><%= link_to 'Delete', @booking, method: :delete, data: {confirm: "Do you REALY want to delete this booking?"}, class: "delete-btn" %></p>
     </ul>
 
-<p><%= link_to 'Add a review', new_booking_review_path(@booking) %></p>
+  <p><%= link_to 'Add a review', new_booking_review_path(@booking), class: "review-btn" %></p>
+</div>
