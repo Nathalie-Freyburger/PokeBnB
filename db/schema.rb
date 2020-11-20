@@ -57,10 +57,10 @@ ActiveRecord::Schema.define(version: 2020_11_19_130111) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.string "description"
     t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 
