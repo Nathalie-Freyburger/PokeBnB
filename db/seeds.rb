@@ -72,3 +72,9 @@ evoli.photo.attach(io: file, filename: 'evoli.png', content_type: 'image/png')
 evoli.user = ondine
 evoli.save
 
+puts "Creating Dragonite"
+file = URI.open('https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fdragonite_un-removebg-preview.png?v=1605819743626')
+dragonite = Pokemon.new(name: "Dragonite", price: 4000, abilities: "dragon", level: 99)
+dragonite.photo.attach(io: file, filename: 'dragonite.png', content_type: 'image/png')
+dragonite.user = ondine
+dragonite.save
