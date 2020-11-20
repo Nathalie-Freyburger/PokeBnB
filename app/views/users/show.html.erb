@@ -5,7 +5,7 @@
           <h1 class="show-user text-center mb-3">My pokemons</h1>
           <% @pokemons.each do |pokemon| %>
           <%= link_to pokemon_path(pokemon) do %>
-            <div class="card mt-1" style="width: 500px;">
+            <div class="card mt-1 bg-transparent" style="width: 500px;">
               <div class="card-body">
                 <div class="row">
                   <div class="col-5">
@@ -14,9 +14,9 @@
                   <div class="col-7">
                     <div class="card-header font-weight-bold"><%=  pokemon.name %></div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"> <%= pokemon.abilities %></li>
-                      <li class="list-group-item"> <%= pokemon.level %></li>
-                      <li class="list-group-item"> <%= pokemon.price %></li>
+                      <li class="list-group-item bg-transparent"> <%= pokemon.abilities %></li>
+                      <li class="list-group-item bg-transparent"> <%= pokemon.level %></li>
+                      <li class="list-group-item bg-transparent"> <%= pokemon.price %></li>
                     </ul>
                   </div>
                 </div>
