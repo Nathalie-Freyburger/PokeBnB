@@ -1,15 +1,26 @@
 <div class="container">
-  <h2>Your booking</h2>
+  <%= image_tag "https://fontmeme.com/permalink/201120/48c60fef6ec708fbeac633bb74262f9a.png", :alt => "title" %>
+  <div class="row">
+    <div class="column-left">
+      <%if @pokemon.photo.attached? %>
+        <%= cl_image_tag @pokemon.photo.key %>
+      <% end %>
+    </div>
 
-    <%if @pokemon.photo.attached? %>
-      <%= cl_image_tag @pokemon.photo.key %>
-    <% end %>
-
-    <ul>
-      <li>Pokemon: <%= @booking.pokemon.name %></li>
-      <li>Rented from: <%= @booking.pokemon.user.username %></li>
-      <p><%= link_to 'Delete', @booking, method: :delete, data: {confirm: "Do you REALY want to delete this booking?"}, class: "delete-btn" %></p>
-    </ul>
-
-  <p><%= link_to 'Add a review', new_booking_review_path(@booking), class: "review-btn" %></p>
+    <div class="column-right">
+      <p><%= link_to 'Add a review', new_booking_review_path(@booking), class: "review-btn" %></p>
+      <div class="elements-column">
+        <div>
+          <p>Pokemon:</p>
+          <%= @booking.pokemon.name %>
+          <p></p>
+          <p>Rented from:</p>
+          <%= @booking.pokemon.user.username %>
+        </div>
+      </div>
+      <div class="elements-column">
+        <p><%= link_to 'Delete', @booking, method: :delete, data: {confirm: "Do you REALY want to delete this booking?"}, class: "delete-btn" %></p>
+      </div>
+    </div>
+  </div>
 </div>

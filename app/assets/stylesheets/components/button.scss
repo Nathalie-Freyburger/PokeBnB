@@ -13,12 +13,22 @@
   background-color: black;
   border: 1px solid yellow;
   border-radius: 25px;
-  color: #fff;
+  color: white;
   font-size: 18px;
   height: 40px;
   padding: 0 30px;
   text-decoration: none;
   text-shadow: none;
+}
+
+.delete-btn:hover {
+  text-decoration: none;
+  transition: color .3s;
+  transition: background-color .3s;
+  transition: border-color .3s;
+  background-color: white;
+  color: black;
+  border-color: black;
 }
 
 .review-btn {
@@ -31,4 +41,12 @@
   padding: 0 30px;
   text-decoration: none;
   text-shadow: none;
+}
+
+.review-btn:hover {
+  text-decoration: none;
+  transition: color .3s;
+  transition: background-color .3s;
+  background-color: white;
+  color: #f03454;
 }

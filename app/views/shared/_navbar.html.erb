@@ -10,9 +10,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%= link_to "All Pokemons", pokemons_path, class: "text-navbar #{"text-black" if controller_name == "pokemons"}" %>
-      <%= link_to "Add a pokemon", new_pokemon_path, class: "text-navbar #{"text-black" if controller_name == "pokemons"}" %>
-      <%= link_to "Pokedex", user_path(current_user), class: "text-navbar #{"text-black" if controller_name == "pokemons"}" %>
+      <%= link_to "All Pokemons", pokemons_path, class: "text-navbar #{"text-black" if controller_name == "pokemons" || controller_name == "bookings"}" %>
+      <%= link_to "Add a pokemon", new_pokemon_path, class: "text-navbar #{"text-black" if controller_name == "pokemons" || controller_name == "bookings"}" %>
+      <%= link_to "Pokedex", user_path(current_user), class: "text-navbar #{"text-black" if controller_name == "pokemons" || controller_name == "bookings"}" %>
       <li class="nav-item dropdown">
         <img class="avatar dropdown-toggle navbar-img" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://64.media.tumblr.com/6a470f8c61f738aef17cb6021a2082f7/tumblr_inline_p7k2j3EuuL1sgzov1_500.gifv" />
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
