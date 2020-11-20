@@ -19,13 +19,14 @@
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.5)), url('https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fc13537fc-8924-4dee-b876-b562eed68eae_banner_pkmn_4x.png?v=1605612633425');
   background-size: cover;
   background-position: center;
-  color: black;
+  color: white;
   margin-top: -150px;
 }
 
 .login-box {
   padding: 50px;
   border-radius: 20px;
+  color: white;
 }
 
 .banner-show {
@@ -62,7 +63,7 @@
 
 .edit-banner {
   padding: 150px;
-  height: 100vh;
+  height: 100%;
   background-image: url('https://imagizer.imageshack.com/img922/3133/uw7Tkp.jpg');
   background-size: cover;
   background-position: center;
