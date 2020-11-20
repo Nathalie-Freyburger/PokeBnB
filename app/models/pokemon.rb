@@ -7,5 +7,6 @@ class Pokemon < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true
   validates :abilities, presence: true
+  validates :description, presence: true
   after_validation :geocode, if: :will_save_change_to_address?
 end

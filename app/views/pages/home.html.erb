@@ -32,9 +32,7 @@
                 </div>
                 <div class="clash-card__unit-name"><%= link_to pokemon.name, pokemon_path(pokemon)%></div>
                 <div class="clash-card__level clash-card__level--barbarian">Level <%= pokemon.level %></div>
-                <div class="clash-card__unit-description">
-                  This pokemon has a great hat warrior with an angry, battle-ready expression, hungry for giving you electricity for the all family house.
-                </div>
+                <div class="clash-card__unit-description"> <%= pokemon.description %> </div>
                 <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
                   <div class="one-third">
                     <div class="stat"><%= pokemon.abilities %></div>

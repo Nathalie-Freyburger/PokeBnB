@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-    resources :pokemons, only: [:index, :new, :create, :show, :destroy ] do
+    resources :pokemons, only: [:index, :new, :show, :create, :update, :edit, :destroy ] do
       resources :bookings, only: [:new, :create, :show, :destroy ]
     end
 
