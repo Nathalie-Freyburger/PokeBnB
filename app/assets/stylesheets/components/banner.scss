@@ -39,12 +39,13 @@
 
 .banner-show-user {
   padding: 150px;
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.5)), url('https://images6.alphacoders.com/328/328013.jpg');
   background-size: cover;
   background-position: center;
   margin-top: -150px;
 }
+
 
 .banner-new {
   padding: 150px;
@@ -55,3 +56,25 @@
   margin-top: -150px;
 }
 
+.banner-show-review {
+  padding: 150px;
+  height: 90vh;
+  background-image: url('https://imagizer.imageshack.com/img924/6496/5ve06k.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-top: -150px;
+}
+
+.banner-show-user > col-7 a {
+  text-decoration: none;
+  color: white;
+}
+
+.edit-banner {
+  padding: 150px;
+  height: 100vh;
+  background-image: url('https://imagizer.imageshack.com/img922/3133/uw7Tkp.jpg');
+  background-size: cover;
+  background-position: center;
+  margin-top: -150px;
+}
