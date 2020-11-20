@@ -39,9 +39,15 @@
 
 .banner-show-user {
   padding: 150px;
-  height: 100vh;
+  height: 100%;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.5)), url('https://images6.alphacoders.com/328/328013.jpg');
   background-size: cover;
   background-position: center;
   margin-top: -150px;
 }
+
+.banner-show-user a {
+  text-decoration: none;
+  color: black;
+}
+
