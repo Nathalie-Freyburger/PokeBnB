@@ -59,6 +59,7 @@
 .clash-card__unit-description {
   padding: 5px;
   margin-bottom: 5px;
+  color: black;
 }
 
 .clash-card__unit-stats--barbarian {
@@ -98,4 +99,8 @@
 .clash-card__unit-stats {
   display: flex;
   justify-content: space-around;
+}
+
+.my-poke a {
+  color: white !important;
 }
