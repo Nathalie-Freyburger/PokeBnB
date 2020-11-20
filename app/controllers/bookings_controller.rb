@@ -34,7 +34,7 @@ before_action :authenticate_user!
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to root_path
+    redirect_to request.referrer
   end
 
   private
