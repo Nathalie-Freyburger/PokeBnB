@@ -26,6 +26,7 @@
   <div class="row featured-cards mt-5">
     <% @pokemons.each do |pokemon| %>
         <div class="col">
+          <%= link_to pokemon_path(pokemon) do %>
             <div class="clash-card barbarian">
               <div class="clash-card__image clash-card__image--barbarian">
                 <% if pokemon.photo.attached? %>
@@ -34,7 +35,7 @@
                 <img src="https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpikachu-removebg-preview.png?v=1605611430597" height="252px" width="247px" alt="pikachu" />
                 <% end %>
                 </div>
-                <div class="clash-card__unit-name"><%= link_to pokemon.name, pokemon_path(pokemon)%></div>
+                <div class="clash-card__unit-name"><%= pokemon.name %></div>
                 <div class="clash-card__level clash-card__level--barbarian">Level <%= pokemon.level %></div>
                 <div class="clash-card__unit-description"> <%= pokemon.description %> </div>
                 <div class="clash-card__unit-stats clash-card__unit-stats--barbarian">
@@ -47,6 +48,7 @@
                 </div>
             </div>
         </div>
+        <% end %>
      <% end %>
   </div>
 </div>
