@@ -16,6 +16,7 @@ class PokemonsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { pokemon: pokemon }),
         image_url: helpers.asset_url('https://cdn.glitch.com/c13537fc-8924-4dee-b876-b562eed68eae%2Fpokeball.svg')
       }
+    end
   end
 
   def show
