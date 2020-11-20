@@ -6,3 +6,25 @@
   color: black;
   text-shadow: none;
 }
+
+.text-center {
+  text-align: center
+}
+
+.text-navbar {
+  font-family: sans-serif;
+  border-color: black;
+  color: white;
+  padding: 5px 10px;
+}
+
+.text-navbar:hover {
+  color: white;
+  transition: box-shadow .4s;
+  box-shadow: 0 4px 0 0 #fd2f5d;
+  text-decoration: none;
+}
+
+.text-black {
+  color: black !important;
+}
