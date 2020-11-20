@@ -4,7 +4,9 @@
       <div class="col-md-6 mt-n5">
          <%= link_to "Go Back to Pokemons' list", pokemons_path, class: "login-btn mt-5" %>
          <br>
-         <%= link_to "Edit Me!", edit_pokemon_path(@pokemon), class: "delete-btn" %>
+         <% if policy(@pokemon).edit? %>
+          <%= link_to "Edit Me!", edit_pokemon_path(@pokemon), class: "delete-btn" %>
+         <% end %>
          <% if policy(@pokemon).destroy? %>
           <p> <%= link_to 'Delete me! ... wait ... WHAAAAT ?', @pokemon, method: :delete, data: {confirm: "Do you REALY want to delete this Pokemon?"}, class: 'delete-btn'%></p>
         <% end %>
